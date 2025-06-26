@@ -53,35 +53,35 @@ export default function BlogPost() {
   // Conteúdo fictício para o artigo completo
   const getFullContent = (excerpt: string) => {
     return `${excerpt}
-    
-    A indústria da construção está passando por uma transformação digital sem precedentes. Com a adoção de tecnologias avançadas, empresas estão encontrando novas maneiras de otimizar processos, reduzir custos e melhorar a qualidade das construções.
-    
-    ## Tecnologias Emergentes
-    
-    ### Inteligência Artificial
-    
-    A IA está revolucionando o planejamento de projetos, permitindo que engenheiros e arquitetos simulem diferentes cenários e tomem decisões baseadas em dados. Algoritmos avançados podem prever problemas potenciais antes mesmo que a construção comece, economizando tempo e recursos.
-    
-    ### Realidade Aumentada
-    
-    Com a RA, equipes podem visualizar modelos 3D sobrepostos ao ambiente real, facilitando a detecção de erros e a coordenação entre diferentes especialidades. Técnicos podem receber instruções visuais em tempo real, reduzindo a margem de erro.
-    
-    ### Internet das Coisas (IoT)
-    
-    Sensores conectados monitoram continuamente estruturas, materiais e equipamentos, fornecendo dados em tempo real sobre o desempenho e condições. Isso permite manutenção preditiva e maior segurança nos canteiros de obras.
-    
-    ## Benefícios da Transformação Digital
-    
-    - **Aumento de produtividade**: Processos automatizados reduzem o tempo gasto em tarefas manuais
-    - **Redução de custos**: Previsão mais precisa de materiais e melhor alocação de recursos
-    - **Melhoria na segurança**: Monitoramento em tempo real de condições de risco
-    - **Sustentabilidade**: Otimização do uso de recursos e redução de desperdícios
-    
-    ## Desafios e Perspectivas
-    
-    Apesar dos avanços, a implementação dessas tecnologias ainda enfrenta desafios como resistência cultural, custos iniciais e necessidade de capacitação. No entanto, empresas que investem nessa transformação estão se posicionando na vanguarda do setor, com vantagens competitivas significativas.
-    
-    A tendência é que nos próximos anos vejamos uma adoção ainda maior dessas tecnologias, com sistemas cada vez mais integrados e acessíveis para empresas de todos os portes.`;
+
+A indústria da construção está passando por uma transformação digital sem precedentes. Com a adoção de tecnologias avançadas, empresas estão encontrando novas maneiras de otimizar processos, reduzir custos e melhorar a qualidade das construções.
+
+## Tecnologias Emergentes
+
+### Inteligência Artificial
+
+A IA está revolucionando o planejamento de projetos, permitindo que engenheiros e arquitetos simulem diferentes cenários e tomem decisões baseadas em dados. Algoritmos avançados podem prever problemas potenciais antes mesmo que a construção comece, economizando tempo e recursos.
+
+### Realidade Aumentada
+
+Com a RA, equipes podem visualizar modelos 3D sobrepostos ao ambiente real, facilitando a detecção de erros e a coordenação entre diferentes especialidades. Técnicos podem receber instruções visuais em tempo real, reduzindo a margem de erro.
+
+### Internet das Coisas (IoT)
+
+Sensores conectados monitoram continuamente estruturas, materiais e equipamentos, fornecendo dados em tempo real sobre o desempenho e condições. Isso permite manutenção preditiva e maior segurança nos canteiros de obras.
+
+## Benefícios da Transformação Digital
+
+- **Aumento de produtividade**: Processos automatizados reduzem o tempo gasto em tarefas manuais
+- **Redução de custos**: Previsão mais precisa de materiais e melhor alocação de recursos
+- **Melhoria na segurança**: Monitoramento em tempo real de condições de risco
+- **Sustentabilidade**: Otimização do uso de recursos e redução de desperdícios
+
+## Desafios e Perspectivas
+
+Apesar dos avanços, a implementação dessas tecnologias ainda enfrenta desafios como resistência cultural, custos iniciais e necessidade de capacitação. No entanto, empresas que investem nessa transformação estão se posicionando na vanguarda do setor, com vantagens competitivas significativas.
+
+A tendência é que nos próximos anos vejamos uma adoção ainda maior dessas tecnologias, com sistemas cada vez mais integrados e acessíveis para empresas de todos os portes.`;
   };
 
   // Se estiver carregando, mostrar esqueleto
@@ -191,13 +191,13 @@ export default function BlogPost() {
                 1.2k visualizações
               </div>
             </div>
-            
+
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 leading-tight">
               <span className="text-white">{post.title.split(' ').slice(0, -2).join(' ')}</span>
               <span className="gradient-text-primary block">{post.title.split(' ').slice(-2).join(' ')}</span>
             </h1>
-            
+
             {/* Excerpt */}
             <p className="text-xl text-white/80 mb-8 leading-relaxed max-w-3xl">
               {post.excerpt}
@@ -205,15 +205,15 @@ export default function BlogPost() {
 
             {/* Author */}
             <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <img 
-                src={post.author.avatar} 
-                alt={post.author.name}
+              <div className="flex items-center">
+                <img 
+                  src={post.author.avatar} 
+                  alt={post.author.name}
                   className="w-12 h-12 rounded-full border-2 border-white/10 mr-4"
-              />
-              <div>
+                />
+                <div>
                   <div className="text-white font-semibold">{post.author.name}</div>
-                <div className="text-white/60 text-sm">Especialista em {post.category}</div>
+                  <div className="text-white/60 text-sm">Especialista em {post.category}</div>
                 </div>
               </div>
 
@@ -244,7 +244,7 @@ export default function BlogPost() {
           </div>
         </div>
       </div>
-      
+
       {/* Featured Image */}
       <div className="container mx-auto px-4 sm:px-6 mb-16">
         <div className="max-w-4xl mx-auto">
@@ -277,21 +277,21 @@ export default function BlogPost() {
             <div className="text-white/80 leading-relaxed space-y-6">
               {getFullContent(post.excerpt).split('\n\n').map((paragraph, index) => {
                 if (paragraph.startsWith('## ')) {
-                return (
+                  return (
                     <h2 key={index} className="text-2xl font-bold text-white mt-12 mb-6 flex items-center">
                       <div className="w-1 h-8 bg-primary rounded-full mr-4"></div>
-                    {paragraph.replace('## ', '')}
-                  </h2>
-                );
+                      {paragraph.replace('## ', '')}
+                    </h2>
+                  );
                 } else if (paragraph.startsWith('### ')) {
-                return (
+                  return (
                     <h3 key={index} className="text-xl font-semibold text-white mt-8 mb-4">
-                    {paragraph.replace('### ', '')}
-                  </h3>
-                );
+                      {paragraph.replace('### ', '')}
+                    </h3>
+                  );
                 } else if (paragraph.startsWith('- ')) {
                   // Handle list items
-                return (
+                  return (
                     <ul key={index} className="space-y-2 my-6">
                       {paragraph.split('\n').map((item, itemIndex) => 
                         item.startsWith('- ') && (
@@ -301,22 +301,22 @@ export default function BlogPost() {
                           </li>
                         )
                       )}
-                  </ul>
-                );
+                    </ul>
+                  );
                 } else if (paragraph.trim()) {
-                return (
+                  return (
                     <p key={index} className="text-lg leading-relaxed mb-6">
-                    {paragraph}
-                  </p>
-                );
-              }
+                      {paragraph}
+                    </p>
+                  );
+                }
                 return null;
-            })}
+              })}
             </div>
           </div>
         </div>
       </article>
-      
+
       {/* Engagement Section */}
       <section className="border-t border-white/5 py-12">
         <div className="container mx-auto px-4 sm:px-6">
@@ -361,25 +361,25 @@ export default function BlogPost() {
               <h2 className="text-3xl font-bold mb-12 text-white text-center">
                 Artigos Relacionados
               </h2>
-            
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {relatedPosts.map(relatedPost => (
-                <Link 
-                  key={relatedPost.id} 
-                  href={`/blog/${relatedPost.id}`}
+                {relatedPosts.map(relatedPost => (
+                  <Link 
+                    key={relatedPost.id} 
+                    href={`/blog/${relatedPost.id}`}
                     className="group"
-                >
+                  >
                     <article className="bg-white/2 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 hover:bg-white/3 transition-all duration-500 hover:-translate-y-2">
                       <div className="relative overflow-hidden">
-                    <img 
-                      src={relatedPost.coverImage} 
-                      alt={relatedPost.title}
+                        <img 
+                          src={relatedPost.coverImage} 
+                          alt={relatedPost.title}
                           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                        />
                         <div className="absolute top-4 left-4">
                           <Badge className="bg-primary/90 text-white border-none backdrop-blur-sm">
-                      {relatedPost.category}
-                    </Badge>
+                            {relatedPost.category}
+                          </Badge>
                         </div>
                       </div>
                       
@@ -396,8 +396,8 @@ export default function BlogPost() {
                         </div>
                         
                         <h3 className="text-lg font-bold mb-3 leading-tight group-hover:text-primary/90 transition-colors duration-300 line-clamp-2">
-                      {relatedPost.title}
-                    </h3>
+                          {relatedPost.title}
+                        </h3>
                         
                         <p className="text-white/70 text-sm leading-relaxed line-clamp-3 mb-4">
                           {relatedPost.excerpt}
@@ -410,25 +410,25 @@ export default function BlogPost() {
                             className="w-6 h-6 rounded-full mr-2 border border-white/10"
                           />
                           <span className="text-sm text-white/80">{relatedPost.author.name}</span>
-                    </div>
-                  </div>
+                        </div>
+                      </div>
                     </article>
-                </Link>
-              ))}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </section>
       )}
-      
+
       {/* Back to Blog */}
       <section className="py-16 text-center">
         <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:border-primary/30 hover:text-primary">
-                <Link href="/blog">
+          <Link href="/blog">
             <ArrowLeft className="h-4 w-4 mr-2" />
             Voltar para o Blog
-                </Link>
-              </Button>
+          </Link>
+        </Button>
       </section>
     </div>
   );
