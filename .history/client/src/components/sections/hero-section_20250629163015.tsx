@@ -89,7 +89,7 @@ export function HeroSection() {
               size="lg" 
               className="text-base sm:text-lg w-full sm:w-auto px-6 sm:px-10 py-6 sm:py-6 rounded-xl sm:rounded-2xl glow-effect hover:glow-effect font-semibold group transition-all duration-300 shadow-lg shadow-orange-600/20"
             >
-              Quero o Meu Sistema Personalizado
+              Quero Meu Sistema Personalizado
               <ArrowRight className="w-5 h-5 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button 
@@ -98,7 +98,7 @@ export function HeroSection() {
               className="text-base sm:text-lg w-full sm:w-auto px-6 sm:px-10 py-6 sm:py-6 rounded-xl sm:rounded-2xl glass-effect border-white/20 hover:border-white/40 text-white hover:text-white font-semibold group transition-all duration-300"
             >
               <Play className="w-5 h-5 sm:w-5 sm:h-5 mr-2 group-hover:scale-110 transition-transform" />
-              Ver os Nossos Projectos
+              Ver Nossos Projetos
             </Button>
           </motion.div>
         </motion.div>
@@ -133,7 +133,7 @@ export function HeroSection() {
                 <div className="p-1 sm:p-2 bg-[#222]/30 rounded-md flex-1">
                   <div className="flex items-center mb-1 sm:mb-2">
                     <Globe className="w-2 h-2 sm:w-3 sm:h-3 text-orange-500/60 mr-1 sm:mr-1.5" />
-                    <div className="text-[8px] sm:text-[10px] text-white/50">Projectos</div>
+                    <div className="text-[8px] sm:text-[10px] text-white/50">Projetos</div>
                   </div>
                   <div className="space-y-1 sm:space-y-1.5">
                     <div className="h-1 sm:h-2 w-3/4 bg-white/10 rounded-full"></div>

@@ -31,7 +31,7 @@ const metrics = [
   { value: "10M+", label: "Projetos realizados", sublabel: "Com sucesso total" }
 ];
 
-const enterpriseFeatures = [
+const empresasFeatures = [
   {
     icon: Shield,
     title: "Máxima Segurança",
@@ -125,7 +125,7 @@ const securityFeatures = [
   "Cópia de segurança automática"
 ];
 
-export default function Enterprise() {
+export default function Empresas() {
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-b from-black via-gray-950 to-black text-white overflow-hidden">
       {/* Hero Section */}
@@ -242,7 +242,7 @@ export default function Enterprise() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {enterpriseFeatures.map((feature, index) => (
+            {empresasFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

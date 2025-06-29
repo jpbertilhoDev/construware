@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Clock, 
@@ -31,7 +32,7 @@ const benefits = [
     id: "sales",
     icon: TrendingUp,
     title: "Aumente as vendas em 40%",
-    subtitle: "Conversão optimizada",
+    subtitle: "Conversão otimizada",
     description: "Sistemas inteligentes que transformam visitantes em clientes e clientes em vendas recorrentes.",
     metric: "+40%",
     metricLabel: "nas vendas",

@@ -79,7 +79,7 @@ export function Navbar() {
               variant="ghost" 
               className="hidden lg:inline-flex text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300 font-medium"
             >
-              Entrar
+              Login
             </Button>
 
             <Button className="rounded-lg sm:rounded-xl px-4 sm:px-6 py-1.5 sm:py-2 bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 text-white text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105">

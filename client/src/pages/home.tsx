@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/hero-section";
 import { FeaturesSection } from "@/components/sections/features-section";
+import { AboutSection } from "@/components/sections/about-section";
 import { AIIntroSection } from "@/components/sections/ai-intro-section";
 import { SystemShowcase } from "@/components/sections/system-showcase";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="min-h-screen">
       <HeroSection />
       <FeaturesSection />
+      <AboutSection />
       <AIIntroSection />
       <SystemShowcase />
       <TestimonialsSection />
