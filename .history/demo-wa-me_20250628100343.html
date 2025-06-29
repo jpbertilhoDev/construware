@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração wa.me - Construware</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center">🔗 Demonstração wa.me</h1>
+        
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4">📱 O que é wa.me?</h2>
+            <p class="text-gray-700 mb-4">
+                <strong>wa.me</strong> é o serviço oficial do WhatsApp para criar links diretos que:
+            </p>
+            <ul class="list-disc pl-6 text-gray-700 mb-4">
+                <li>Abrem conversas diretas sem salvar contato</li>
+                <li>Pré-preenchem mensagens automaticamente</li>
+                <li>Funcionam em qualquer dispositivo</li>
+                <li>São 100% compatíveis e gratuitos</li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <h2 class="text-xl font-semibold mb-4">🧪 Teste Prático</h2>
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-2">Número WhatsApp (formato português):</label>
+                <input type="text" id="phoneNumber" placeholder="+351 963 901 570" 
+                       class="w-full p-3 border rounded-lg" value="+351 963 901 570">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-2">Mensagem pré-preenchida:</label>
+                <textarea id="message" rows="4" class="w-full p-3 border rounded-lg"
+                          placeholder="Digite sua mensagem aqui...">🤖 Olá! 
+
+Recebi este relatório automático da IA Consultora da Construware:
+
+📊 Setor: Restaurante
+👥 Funcionários: 6-20
+💰 Economia estimada: €25.000/ano
+🎯 Recomendação: Sistema Desktop + App Mobile
+
+Gostaria de agendar uma demonstração gratuita!
+
+Obrigado! 🙏</textarea>
+            </div>
+            
+            <div class="flex gap-4">
+                <button onclick="generateWaMe()" 
+                        class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
+                    📱 Gerar Link wa.me
+                </button>
+                
+                <button onclick="openWhatsApp()" 
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+                    🚀 Abrir WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-6" id="result" style="display: none;">
+            <h3 class="text-lg font-semibold mb-4">🔗 Link wa.me Gerado:</h3>
+            <div class="bg-gray-100 p-3 rounded border text-sm font-mono break-all" id="generatedLink"></div>
+            
+            <h3 class="text-lg font-semibold mb-2 mt-4">📋 Como Funciona:</h3>
+            <ol class="list-decimal pl-6 text-gray-700">
+                <li>O link abre o WhatsApp automaticamente</li>
+                <li>Seleciona o contato (+351 963 901 570)</li>
+                <li>Pré-preenche a mensagem no campo de texto</li>
+                <li>Usuário só precisa clicar "Enviar"</li>
+            </ol>
+        </div>
+
+        <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-lg">
+            <h3 class="text-lg font-semibold mb-2 text-yellow-800">⚡ No Sistema Construware:</h3>
+            <div class="text-yellow-700">
+                <p class="mb-2"><strong>🎯 Sistema Híbrido Inteligente:</strong></p>
+                <ul class="list-disc pl-6">
+                    <li><strong>1º Tentativa:</strong> Evolution API (envio automático)</li>
+                    <li><strong>2º Fallback:</strong> wa.me (método manual garantido)</li>
+                    <li><strong>Resultado:</strong> 100% de taxa de sucesso</li>
+                </ul>
+                
+                <p class="mt-4 font-semibold">
+                    🚀 Se Evolution API funcionar → Automático<br>
+                    📱 Se falhar → wa.me (como demonstrado acima)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function formatPhoneNumber(phone) {
+            // Remove espaços e caracteres especiais
+            let cleanPhone = phone.replace(/\s+/g, '').replace(/[^\d+]/g, '');
+            
+            // Formatar para wa.me (sem + inicial)
+            if (cleanPhone.startsWith('+351')) {
+                return cleanPhone.substring(1);
+            } else if (cleanPhone.startsWith('351')) {
+                return cleanPhone;
+            } else if (cleanPhone.startsWith('9') && cleanPhone.length === 9) {
+                return '351' + cleanPhone;
+            }
+            
+            return cleanPhone;
+        }
+
+        function generateWaMe() {
+            const phone = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+            
+            try {
+                const formattedPhone = formatPhoneNumber(phone);
+                const encodedMessage = encodeURIComponent(message);
+                const waLink = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+                
+                document.getElementById('generatedLink').textContent = waLink;
+                document.getElementById('result').style.display = 'block';
+                
+                // Scroll para o resultado
+                document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+                
+            } catch (error) {
+                alert('Erro ao gerar link: ' + error.message);
+            }
+        }
+
+        function openWhatsApp() {
+            const phone = document.getElementById('phoneNumber').value;
+            const message = document.getElementById('message').value;
+            
+            try {
+                const formattedPhone = formatPhoneNumber(phone);
+                const encodedMessage = encodeURIComponent(message);
+                const waLink = `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
+                
+                // Abrir WhatsApp
+                window.open(waLink, '_blank');
+                
+                // Mostrar resultado também
+                document.getElementById('generatedLink').textContent = waLink;
+                document.getElementById('result').style.display = 'block';
+                
+            } catch (error) {
+                alert('Erro ao abrir WhatsApp: ' + error.message);
+            }
+        }
+    </script>
+</body>
+</html> 
