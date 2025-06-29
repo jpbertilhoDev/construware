@@ -608,11 +608,3 @@ export default function Enterprise() {
     </div>
   );
 }
-
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
-  );
-}

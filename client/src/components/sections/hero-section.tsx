@@ -291,19 +291,3 @@ export function HeroSection() {
     </section>
   );
 }
-        </div>
-      </motion.div>
-      
-      {/* Subtle Construction Tools Background */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        {/* Construction tools scattered subtly */}
-        <div className="construction-tool-1"></div>
-        <div className="construction-tool-2"></div>
-        <div className="construction-tool-3"></div>
-        <div className="construction-tool-4"></div>
-        <div className="construction-tool-5"></div>
-        <div className="construction-tool-6"></div>
-      </div>
-    </section>
-  );
-}
