@@ -101,8 +101,140 @@ export function PricingSection() {
           </p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        {/* Pricing Cards - Mobile optimized stack */}
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+          {/* Mobile: Show popular plan first */}
+          <div className="lg:hidden">
+            {pricingPlans
+              .sort((a, b) => (b.isPopular ? 1 : 0) - (a.isPopular ? 1 : 0))
+              .map((plan, index) => {
+                const IconComponent = plan.icon;
+                
+                return (
+                  <motion.div
+                    key={plan.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ y: -5, scale: 1.01 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: index * 0.1
+                    }}
+                    viewport={{ once: true }}
+                    className="relative group"
+                  >
+                    {/* Popular Badge */}
+                    {plan.isPopular && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                        <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 px-4 py-2">
+                          Mais Escolhido
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    {/* Mobile Card */}
+                    <div className={`relative h-full rounded-xl p-6 transition-all duration-500 ${
+                      plan.isPopular 
+                        ? 'bg-gradient-to-br from-orange-500/10 via-orange-600/5 to-black/50 border-2 border-orange-500/30' 
+                        : 'bg-gradient-to-br from-white/[0.03] via-white/[0.01] to-black/30 border border-white/10'
+                    }`}>
+                      {/* Header */}
+                      <div className="mb-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                            plan.isPopular 
+                              ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/30' 
+                              : 'bg-white/[0.05] border border-white/10'
+                          }`}>
+                            <IconComponent className={`w-5 h-5 ${
+                              plan.isPopular ? 'text-orange-400' : 'text-white/70'
+                            }`} />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-bold text-white">
+                              {plan.name}
+                            </h3>
+                            <p className="text-sm text-white/50">
+                              {plan.period}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Price */}
+                        <div className="mb-4">
+                          <div className="flex items-baseline gap-2 mb-3">
+                            <span className="text-3xl font-bold text-white">
+                              {plan.price}
+                            </span>
+                            {plan.originalPrice && (
+                              <span className="text-lg text-white/40 line-through">
+                                {plan.originalPrice}
+                              </span>
+                            )}
+                          </div>
+                          
+                          {/* Payment Options */}
+                          <div className="space-y-2">
+                            <div className="text-sm text-orange-400 font-medium">
+                              ou {plan.installmentPrice} em 3x
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {plan.paymentOptions.map((option, idx) => {
+                                const OptionIcon = option.icon;
+                                return (
+                                  <div 
+                                    key={idx}
+                                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
+                                      plan.isPopular 
+                                        ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' 
+                                        : 'bg-white/10 text-white/70 border border-white/20'
+                                    }`}
+                                  >
+                                    <OptionIcon className="w-3 h-3" />
+                                    {option.text}
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Description */}
+                        <p className="text-white/70 leading-relaxed mb-6 text-base">
+                          {plan.description}
+                        </p>
+
+                        {/* Mobile optimized CTA Button - Full width, min-height 48px */}
+                        <Button 
+                          className={`w-full min-h-[48px] rounded-xl font-bold transition-all duration-300 text-base ${
+                            plan.isPopular 
+                              ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25' 
+                              : 'bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/20 hover:border-white/40'
+                          }`}
+                        >
+                          {plan.ctaText}
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
+
+                      {/* Features */}
+                      <div className="space-y-3">
+                        {plan.features.map((feature, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                            <Check className="w-4 h-4 text-orange-400 mt-0.5 flex-shrink-0" />
+                            <span className="text-white/70 text-sm">
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+          </div>
+
+          {/* Desktop: Original layout */}
           {pricingPlans.map((plan, index) => {
             const IconComponent = plan.icon;
             
@@ -117,9 +249,9 @@ export function PricingSection() {
                   delay: index * 0.1
                 }}
                 viewport={{ once: true }}
-                className={`relative group ${plan.isPopular ? 'md:col-span-2 lg:col-span-1 lg:scale-105 z-10' : ''}`}
+                className={`hidden lg:block relative group ${plan.isPopular ? 'lg:scale-105 z-10' : ''}`}
               >
-                {/* Popular Badge - Clean */}
+                {/* Popular Badge */}
                 {plan.isPopular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
                     <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 px-4 py-2">
@@ -129,41 +261,41 @@ export function PricingSection() {
                 )}
                 
                 {/* Card */}
-                <div className={`relative h-full rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-500 ${
+                <div className={`relative h-full rounded-2xl p-8 transition-all duration-500 ${
                   plan.isPopular 
                     ? 'bg-gradient-to-br from-orange-500/10 via-orange-600/5 to-black/50 border-2 border-orange-500/30' 
                     : 'bg-gradient-to-br from-white/[0.03] via-white/[0.01] to-black/30 border border-white/10'
                 }`}>
                   {/* Header */}
-                  <div className="mb-6 md:mb-8">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center ${
+                  <div className="mb-8">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                         plan.isPopular 
                           ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/30' 
                           : 'bg-white/[0.05] border border-white/10'
                       }`}>
-                        <IconComponent className={`w-5 h-5 md:w-6 md:h-6 ${
+                        <IconComponent className={`w-6 h-6 ${
                           plan.isPopular ? 'text-orange-400' : 'text-white/70'
-                      }`} />
+                        }`} />
                       </div>
                       <div>
-                        <h3 className="text-lg md:text-xl font-bold text-white">
+                        <h3 className="text-xl font-bold text-white">
                           {plan.name}
                         </h3>
-                        <p className="text-xs md:text-sm text-white/50">
+                        <p className="text-sm text-white/50">
                           {plan.period}
                         </p>
                       </div>
                     </div>
                     
                     {/* Price */}
-                    <div className="mb-4 md:mb-6">
-                      <div className="flex items-baseline gap-2 md:gap-3 mb-3">
-                        <span className="text-3xl md:text-4xl font-bold text-white">
+                    <div className="mb-6">
+                      <div className="flex items-baseline gap-3 mb-3">
+                        <span className="text-4xl font-bold text-white">
                           {plan.price}
                         </span>
                         {plan.originalPrice && (
-                          <span className="text-lg md:text-xl text-white/40 line-through">
+                          <span className="text-xl text-white/40 line-through">
                             {plan.originalPrice}
                           </span>
                         )}
@@ -196,29 +328,29 @@ export function PricingSection() {
                     </div>
                     
                     {/* Description */}
-                    <p className="text-white/70 leading-relaxed mb-6 md:mb-8 text-base md:text-lg">
+                    <p className="text-white/70 leading-relaxed mb-8 text-lg">
                       {plan.description}
                     </p>
 
                     {/* CTA Button */}
                     <Button 
-                      className={`w-full h-12 md:h-14 rounded-xl font-bold transition-all duration-300 text-base md:text-lg ${
+                      className={`w-full h-14 rounded-xl font-bold transition-all duration-300 text-lg ${
                         plan.isPopular 
                           ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25' 
                           : 'bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/20 hover:border-white/40'
                       }`}
                     >
                       {plan.ctaText}
-                      <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
+                      <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-3 md:space-y-4">
+                  <div className="space-y-4">
                     {plan.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 md:w-5 md:h-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-white/70 text-sm md:text-base">
+                        <Check className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-white/70 text-base">
                           {feature}
                         </span>
                       </div>
