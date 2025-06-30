@@ -1,0 +1,32 @@
+Re-optimizing dependencies because vite config has changed
+
+  VITE v5.4.14  ready in 284 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.1.65:5173/
+  ➜  Network: http://192.168.1.67:5173/
+  ➜  press h + enter to show help
+Error: The following dependencies are imported but could not be resolved:
+
+  @/components/ui/toaster (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/components/ui/tooltip (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/components/ui/theme-provider (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/components/layout/navbar (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/components/layout/mobile-navbar (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/components/layout/footer (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/home (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/about (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/features (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/pricing (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/enterprise (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/projects (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/project-detail (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/contact (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/not-found (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/admin-login (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+  @/pages/admin/dashboard (imported by /Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/client/src/App.tsx)
+
+Are they installed?
+    at file:///Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:50668:15
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async file:///Users/mevamalmada/Desktop/ConstruwareWebsite-Clean/node_modules/vite/dist/node/chunks/dep-CHZK6zbr.js:50173:26

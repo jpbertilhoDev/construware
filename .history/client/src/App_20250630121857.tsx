@@ -19,7 +19,6 @@ import ProjectDetail from "@/pages/project-detail";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 import AdminLoginPage from "@/pages/admin-login";
-import AdminDashboard from "@/pages/admin/dashboard";
 
 function Router() {
   return (
@@ -37,7 +36,6 @@ function Router() {
       
       {/* Admin Routes */}
       <Route path="/admin/login" component={AdminLoginPage} />
-      <Route path="/admin/dashboard" component={AdminDashboard} />
       
       {/* Fallback to 404 */}
       <Route component={NotFound} />

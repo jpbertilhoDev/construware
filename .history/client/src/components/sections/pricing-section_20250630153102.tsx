@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Star, Building, Smartphone, CreditCard, Calendar } from "lucide-react";
+import { Check, ArrowRight, Star, Building, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const pricingPlans = [
@@ -10,11 +10,6 @@ const pricingPlans = [
     price: '€1.200',
     originalPrice: '€1.500',
     period: 'Pagamento único',
-    installmentPrice: '€400',
-    paymentOptions: [
-      { text: '3x sem juros', icon: CreditCard },
-      { text: 'Pagamento em fases do projeto', icon: Calendar }
-    ],
     description: 'Website profissional que faz a sua empresa crescer 3x mais rápido',
     features: [
       'Website profissional responsivo',
@@ -33,11 +28,6 @@ const pricingPlans = [
     price: '€4.200',
     originalPrice: '€5.000',
     period: 'Pagamento único',
-    installmentPrice: '€1.400',
-    paymentOptions: [
-      { text: '3x sem juros', icon: CreditCard },
-      { text: 'Pagamento em fases do projeto', icon: Calendar }
-    ],
     description: 'Sistema que automatiza o seu negócio e elimina trabalho manual',
     features: [
       'Tudo do Website Básico',
@@ -57,11 +47,6 @@ const pricingPlans = [
     price: '€8.000',
     originalPrice: '€10.000',
     period: 'Pagamento único',
-    installmentPrice: '€2.667',
-    paymentOptions: [
-      { text: '3x sem juros', icon: CreditCard },
-      { text: 'Pagamento em fases do projeto', icon: Calendar }
-    ],
     description: 'Aplicação móvel que coloca o seu negócio no bolso dos clientes',
     features: [
       'Tudo do Sistema Completo',
@@ -158,7 +143,7 @@ export function PricingSection() {
                     
                     {/* Price */}
                     <div className="mb-4 md:mb-6">
-                      <div className="flex items-baseline gap-2 md:gap-3 mb-3">
+                      <div className="flex items-baseline gap-2 md:gap-3">
                         <span className="text-3xl md:text-4xl font-bold text-white">
                           {plan.price}
                         </span>
@@ -167,31 +152,6 @@ export function PricingSection() {
                             {plan.originalPrice}
                           </span>
                         )}
-                      </div>
-                      
-                      {/* Payment Options */}
-                      <div className="space-y-2">
-                        <div className="text-sm text-orange-400 font-medium">
-                          ou {plan.installmentPrice} em 3x
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          {plan.paymentOptions.map((option, idx) => {
-                            const OptionIcon = option.icon;
-                            return (
-                              <div 
-                                key={idx}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
-                                  plan.isPopular 
-                                    ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' 
-                                    : 'bg-white/10 text-white/70 border border-white/20'
-                                }`}
-                              >
-                                <OptionIcon className="w-3 h-3" />
-                                {option.text}
-                              </div>
-                            );
-                          })}
-                        </div>
                       </div>
                     </div>
                     
@@ -230,49 +190,18 @@ export function PricingSection() {
           })}
         </div>
 
-        {/* Payment Information & Trust indicators */}
+        {/* Trust indicators - Clean */}
         <motion.div 
-          className="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-white/10"
+          className="text-center mt-12 md:mt-16 pt-6 md:pt-8 border-t border-white/10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Payment Options Highlight */}
-          <div className="text-center mb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-              Opções de Pagamento Flexíveis
-            </h3>
-            <div className="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-              <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/5 border border-orange-500/20 rounded-xl p-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <CreditCard className="w-5 h-5 text-orange-400" />
-                  <span className="font-semibold text-white">3x sem juros</span>
-                </div>
-                <p className="text-white/70 text-sm">
-                  Divida o investimento em 3 parcelas iguais, sem juros adicionais
-                </p>
-              </div>
-              <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/5 border border-orange-500/20 rounded-xl p-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <Calendar className="w-5 h-5 text-orange-400" />
-                  <span className="font-semibold text-white">Pagamento em fases</span>
-                </div>
-                <p className="text-white/70 text-sm">
-                  Pague conforme o progresso do seu projeto é entregue
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="text-center">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-white/40 text-sm md:text-base">
-              <span>✓ Garantia de 30 dias</span>
-              <span>✓ Suporte em português</span>
-              <span>✓ Pagamento seguro</span>
-              <span>✓ Sem taxas ocultas</span>
-            </div>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-white/40 text-sm md:text-base">
+            <span>✓ Garantia de 30 dias</span>
+            <span>✓ Suporte em português</span>
+            <span>✓ Pagamento seguro</span>
           </div>
         </motion.div>
       </div>

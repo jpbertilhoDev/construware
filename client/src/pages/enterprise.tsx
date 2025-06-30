@@ -1,8 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { 
   Building, 
@@ -21,7 +18,11 @@ import {
   Sparkles,
   Brain,
   Layers,
-  Target
+  Target,
+  MessageCircle,
+  Phone,
+  Calendar,
+  Headphones
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -440,7 +441,7 @@ export default function Empresas() {
         </div>
       </section>
 
-      {/* Enhanced Contact Form */}
+      {/* WhatsApp Contact Section */}
       <section className="py-40 bg-gradient-to-b from-black to-gray-950">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
@@ -462,7 +463,7 @@ export default function Empresas() {
                 </span>
               </h2>
               <p className="text-xl text-gray-300 leading-relaxed">
-                Marque uma conversa connosco e veja como podemos transformar a sua empresa em poucas semanas.
+                Fale diretamente connosco via WhatsApp e comece a transformar a sua empresa hoje mesmo.
               </p>
             </motion.div>
 
@@ -471,91 +472,165 @@ export default function Empresas() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
+              className="space-y-8"
             >
-              <Card className="p-12 bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl backdrop-blur-sm">
-                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <Label htmlFor="firstName" className="text-sm font-semibold text-gray-200">Nome *</Label>
-                      <Input 
-                        id="firstName" 
-                        placeholder="João" 
-                        className="h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20" 
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="lastName" className="text-sm font-semibold text-gray-200">Apelido *</Label>
-                      <Input 
-                        id="lastName" 
-                        placeholder="Silva" 
-                        className="h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20" 
-                      />
-                    </div>
-                  </div>
+              {/* Main WhatsApp Contact Card */}
+              <Card className="p-12 bg-gradient-to-br from-green-500/10 via-green-600/5 to-black/50 border-2 border-green-500/30 rounded-3xl backdrop-blur-sm relative overflow-hidden">
+                {/* Background Effects */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-green-500/10 rounded-full blur-3xl animate-pulse"></div>
+                  <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                </div>
 
-                  <div className="space-y-3">
-                    <Label htmlFor="email" className="text-sm font-semibold text-gray-200">Email da Empresa *</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="joao@empresa.pt" 
-                      className="h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20" 
-                    />
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-3">
-                      <Label htmlFor="company" className="text-sm font-semibold text-gray-200">Nome da Empresa *</Label>
-                      <Input 
-                        id="company" 
-                        placeholder="Empresa ABC Lda" 
-                        className="h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20" 
-                      />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="employees" className="text-sm font-semibold text-gray-200">Quantos Funcionários</Label>
-                      <Input 
-                        id="employees" 
-                        placeholder="Ex: 50 pessoas" 
-                        className="h-14 bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20" 
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <Label htmlFor="message" className="text-sm font-semibold text-gray-200">Como podemos ajudar a sua empresa?</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Conte-nos quais são os principais problemas da sua empresa e o que gostaria de melhorar. Quanto mais nos disser, melhor poderemos ajudar..."
-                      rows={5}
-                      className="resize-none bg-white/5 border-white/20 text-white placeholder:text-gray-400 rounded-xl focus:border-orange-500/50 focus:ring-orange-500/20"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit" 
-                    className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-orange-500 to-orange-400 hover:from-orange-600 hover:to-orange-500 rounded-xl shadow-2xl shadow-orange-500/25 transform hover:scale-[1.02] transition-all duration-300"
+                <div className="relative z-10 text-center">
+                  {/* WhatsApp Icon */}
+                  <motion.div
+                    className="w-24 h-24 bg-gradient-to-br from-green-500 to-green-400 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-green-500/25"
+                    initial={{ scale: 0.8 }}
+                    whileInView={{ scale: 1 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.5 }}
                   >
-                    Quero Falar Convosco
-                    <ArrowRight className="ml-3 w-5 h-5" />
-                  </Button>
+                    <MessageCircle className="w-12 h-12 text-white" />
+                  </motion.div>
 
-                  <div className="flex items-center justify-center space-x-6 text-sm text-gray-400">
-                    <div className="flex items-center">
-                      <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
-                      Resposta em 2 horas
-                    </div>
-                    <div className="flex items-center">
-                      <Shield className="w-4 h-4 text-blue-400 mr-2" />
-                      Dados protegidos
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-4 h-4 text-orange-400 mr-2" />
-                      Reunião em 24h
-                    </div>
-                  </div>
-                </form>
+                  <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                    Contacto Direto via WhatsApp
+                  </h3>
+                  <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Fale diretamente com a nossa equipa de especialistas. Resposta garantida em poucos minutos.
+                  </p>
+
+                  {/* WhatsApp Button */}
+                  <motion.a
+                    href="https://wa.me/351963901577?text=Olá! Gostaria de saber mais sobre as soluções da Construware para empresas."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Button 
+                      size="lg"
+                      className="px-12 py-6 text-xl font-bold bg-gradient-to-r from-green-500 to-green-400 hover:from-green-600 hover:to-green-500 rounded-2xl shadow-2xl shadow-green-500/25 transform transition-all duration-300 border-0"
+                    >
+                      <MessageCircle className="w-6 h-6 mr-3" />
+                      Falar via WhatsApp
+                      <ArrowRight className="ml-3 w-6 h-6" />
+                    </Button>
+                  </motion.a>
+
+                  <p className="text-sm text-gray-400 mt-4">
+                    +351 963 901 577
+                  </p>
+                </div>
               </Card>
+
+              {/* Alternative Contact Methods */}
+              <div className="grid md:grid-cols-3 gap-6">
+                {/* Phone Contact */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 h-full bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-orange-400/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-orange-500/30 group-hover:to-orange-400/30 transition-all duration-300">
+                        <Phone className="w-8 h-8 text-orange-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-white mb-3">Chamada Direta</h4>
+                      <p className="text-gray-300 text-sm mb-4">
+                        Prefere falar ao telefone? Ligue-nos diretamente.
+                      </p>
+                      <a 
+                        href="tel:+351963901577"
+                        className="text-orange-400 hover:text-orange-300 font-medium transition-colors"
+                      >
+                        +351 963 901 577
+                      </a>
+                    </div>
+                  </Card>
+                </motion.div>
+
+                {/* Email Contact */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 h-full bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-orange-400/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-orange-500/30 group-hover:to-orange-400/30 transition-all duration-300">
+                        <Globe className="w-8 h-8 text-orange-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-white mb-3">Email Empresarial</h4>
+                      <p className="text-gray-300 text-sm mb-4">
+                        Envie-nos um email para discussões mais detalhadas.
+                      </p>
+                      <a 
+                        href="mailto:comercial@construware.pt"
+                        className="text-orange-400 hover:text-orange-300 font-medium transition-colors"
+                      >
+                        comercial@construware.pt
+                      </a>
+                    </div>
+                  </Card>
+                </motion.div>
+
+                {/* Schedule Meeting */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="p-8 h-full bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-2xl backdrop-blur-sm hover:border-orange-500/30 transition-all duration-500 group">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-gradient-to-br from-orange-500/20 to-orange-400/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:from-orange-500/30 group-hover:to-orange-400/30 transition-all duration-300">
+                        <Calendar className="w-8 h-8 text-orange-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-white mb-3">Marcar Reunião</h4>
+                      <p className="text-gray-300 text-sm mb-4">
+                        Agende uma demonstração personalizada da plataforma.
+                      </p>
+                      <span className="text-orange-400 font-medium">
+                        Disponível 24/7
+                      </span>
+                    </div>
+                  </Card>
+                </motion.div>
+              </div>
+
+              {/* Contact Benefits */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-sm text-gray-400">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3" />
+                    <span className="font-medium">Resposta em 5 minutos</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Headphones className="w-5 h-5 text-orange-400 mr-3" />
+                    <span className="font-medium">Suporte em português</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Shield className="w-5 h-5 text-blue-400 mr-3" />
+                    <span className="font-medium">Conversa confidencial</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 text-purple-400 mr-3" />
+                    <span className="font-medium">Demonstração em 24h</span>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
