@@ -58,8 +58,8 @@ const benefits = [
     id: "speed",
     icon: Zap,
     title: "Experiência Comprovada",
-    description: "Mais de 20 sistemas entregues com foco em performance e usabilidade.",
-    metric: "20+ projetos",
+    description: "Mais de 50 sistemas entregues com foco em performance e usabilidade.",
+    metric: "30d",
     color: "from-yellow-500 to-orange-500"
   }
 ];
