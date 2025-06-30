@@ -215,16 +215,16 @@ export function HeroSection() {
                     <div className="flex">
                       <span className="text-white/20 mr-2">1</span>
                       <span className="text-purple-400/60">import</span>
-                      <span className="text-white/40 ml-1">{'{ Construware }'}</span>
+                      <span className="text-white/40 ml-1">{ Sistema }</span>
                       <span className="text-purple-400/60 ml-1">from</span>
-                      <span className="text-green-400/60 ml-1">'./sistema'</span>
+                      <span className="text-green-400/60 ml-1">'./construware'</span>
                     </div>
                     <div className="flex">
                       <span className="text-white/20 mr-2">2</span>
-                      <span className="text-white/40">Construware.</span>
+                      <span className="text-white/40">Sistema.</span>
                       <span className="text-blue-400/60">automatizar</span>
                       <span className="text-white/40">()</span>
-                    </div>
+                      </div>
                     <div className="flex">
                       <span className="text-white/20 mr-2">3</span>
                       <span className="text-green-400/60">// ✅ Negócio automatizado</span>

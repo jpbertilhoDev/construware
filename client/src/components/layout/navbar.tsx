@@ -6,6 +6,7 @@ import { Logo } from "@/components/ui/logo";
 import { Moon, Sun } from "lucide-react";
 
 const navigationItems = [
+  { href: "/about", label: "Sobre Nós" },
   { href: "/features", label: "Porquê Escolher" },
   { href: "/pricing", label: "Serviços" },
   { href: "/enterprise", label: "Empresas" },

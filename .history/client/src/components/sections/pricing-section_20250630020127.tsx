@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, ArrowRight, Star, Building, Smartphone } from "lucide-react";
+import { Check, ArrowRight, Star, Zap, Building, Crown, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const pricingPlans = [
@@ -20,13 +20,14 @@ const pricingPlans = [
     ],
     ctaText: 'Começar Agora',
     icon: Building,
-    isPopular: false
+    isPopular: false,
+    savings: '€300'
   },
   {
     id: 'professional',
     name: 'Sistema Completo',
-    price: '€4.200',
-    originalPrice: '€5.000',
+    price: '€3.200',
+    originalPrice: '€4.000',
     period: 'Pagamento único',
     description: 'Sistema que automatiza o seu negócio e elimina trabalho manual',
     features: [
@@ -39,7 +40,8 @@ const pricingPlans = [
     ],
     ctaText: 'Mais Escolhido',
     icon: Star,
-    isPopular: true
+    isPopular: true,
+    savings: '€800'
   },
   {
     id: 'enterprise',
@@ -58,7 +60,8 @@ const pricingPlans = [
     ],
     ctaText: 'Falar Connosco',
     icon: Smartphone,
-    isPopular: false
+    isPopular: false,
+    savings: '€2.000'
   }
 ];
 
@@ -74,6 +77,11 @@ export function PricingSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          <Badge variant="secondary" className="mb-6 px-6 py-3 bg-orange-500/10 text-orange-300 border-orange-500/20 text-sm md:text-base">
+            <Zap className="w-4 h-4 md:w-5 md:h-5 mr-2" />
+            20% Desconto - Só Este Mês
+          </Badge>
+          
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 md:mb-8 tracking-tight px-4">
             Invista no crescimento{" "}
             <span className="text-transparent bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text">
@@ -83,6 +91,8 @@ export function PricingSection() {
           
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto px-4">
             Preços justos, sem surpresas. Pague uma vez e tenha o seu sistema para sempre.
+            <br />
+            <strong className="text-orange-400">Sem mensalidades, sem taxas escondidas.</strong>
           </p>
         </motion.div>
 
@@ -104,17 +114,26 @@ export function PricingSection() {
                 viewport={{ once: true }}
                 className={`relative group ${plan.isPopular ? 'md:col-span-2 lg:col-span-1 lg:scale-105 z-10' : ''}`}
               >
-                {/* Popular Badge - Clean */}
+                {/* Popular Badge */}
                 {plan.isPopular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                    <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white border-0 px-4 py-2">
-                      Mais Escolhido
-                    </Badge>
+                  <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2 z-20">
+                    <div className="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full text-xs md:text-sm font-bold text-white shadow-2xl">
+                      ⭐ Mais Escolhido - Poupa €800
+                    </div>
+                  </div>
+                )}
+
+                {/* Savings Badge */}
+                {plan.savings && (
+                  <div className="absolute -top-2 -right-2 z-20">
+                    <div className="px-3 py-1 bg-green-500 rounded-full text-xs font-bold text-white shadow-lg">
+                      Poupa {plan.savings}
+                    </div>
                   </div>
                 )}
                 
                 {/* Card */}
-                <div className={`relative h-full rounded-xl md:rounded-2xl p-6 md:p-8 transition-all duration-500 ${
+                <div className={`relative h-full rounded-2xl md:rounded-3xl p-6 md:p-8 transition-all duration-500 ${
                   plan.isPopular 
                     ? 'bg-gradient-to-br from-orange-500/10 via-orange-600/5 to-black/50 border-2 border-orange-500/30' 
                     : 'bg-gradient-to-br from-white/[0.03] via-white/[0.01] to-black/30 border border-white/10'
@@ -122,7 +141,7 @@ export function PricingSection() {
                   {/* Header */}
                   <div className="mb-6 md:mb-8">
                     <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center ${
+                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center ${
                         plan.isPopular 
                           ? 'bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/30' 
                           : 'bg-white/[0.05] border border-white/10'
@@ -162,7 +181,7 @@ export function PricingSection() {
 
                     {/* CTA Button */}
                     <Button 
-                      className={`w-full h-12 md:h-14 rounded-xl font-bold transition-all duration-300 text-base md:text-lg ${
+                      className={`w-full h-12 md:h-14 rounded-xl md:rounded-2xl font-bold transition-all duration-300 text-base md:text-lg ${
                         plan.isPopular 
                           ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25' 
                           : 'bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/20 hover:border-white/40'
@@ -190,7 +209,7 @@ export function PricingSection() {
           })}
         </div>
 
-        {/* Trust indicators - Clean */}
+        {/* Trust indicators */}
         <motion.div 
           className="text-center mt-12 md:mt-16 pt-6 md:pt-8 border-t border-white/10"
           initial={{ opacity: 0, y: 20 }}
@@ -198,6 +217,7 @@ export function PricingSection() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
+          <p className="text-white/60 mb-4 text-sm md:text-base">Mais de 50 empresas já confiam em nós</p>
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-white/40 text-sm md:text-base">
             <span>✓ Garantia de 30 dias</span>
             <span>✓ Suporte em português</span>

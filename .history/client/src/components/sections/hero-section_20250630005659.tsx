@@ -215,16 +215,16 @@ export function HeroSection() {
                     <div className="flex">
                       <span className="text-white/20 mr-2">1</span>
                       <span className="text-purple-400/60">import</span>
-                      <span className="text-white/40 ml-1">{'{ Construware }'}</span>
+                      <span className="text-white/40 ml-1">{ Sistema }</span>
                       <span className="text-purple-400/60 ml-1">from</span>
-                      <span className="text-green-400/60 ml-1">'./sistema'</span>
+                      <span className="text-green-400/60 ml-1">'./construware'</span>
                     </div>
                     <div className="flex">
                       <span className="text-white/20 mr-2">2</span>
-                      <span className="text-white/40">Construware.</span>
+                      <span className="text-white/40">Sistema.</span>
                       <span className="text-blue-400/60">automatizar</span>
                       <span className="text-white/40">()</span>
-                    </div>
+                      </div>
                     <div className="flex">
                       <span className="text-white/20 mr-2">3</span>
                       <span className="text-green-400/60">// ✅ Negócio automatizado</span>
@@ -236,6 +236,95 @@ export function HeroSection() {
           </div>
         </div>
       </motion.div>
+    </section>
+  );
+}
+
+                {/* Development timeline */}
+                <div className="p-1 sm:p-2 bg-[#222]/25 rounded-md flex-grow">
+                  <div className="text-[8px] sm:text-[10px] text-white/40 mb-1 sm:mb-2 flex items-center">
+                    <Layers className="w-2 h-2 sm:w-3 sm:h-3 mr-1 sm:mr-1.5 text-white/30" />
+                    Cronograma de desenvolvimento
+                  </div>
+                  
+                  {/* Timeline visualization */}
+                  <div className="relative h-10 sm:h-20">
+                    {/* Timeline background */}
+                    <div className="absolute inset-0 grid grid-cols-5 gap-0.5 sm:gap-1">
+                      <div className="bg-orange-500/15 rounded-sm"></div>
+                      <div className="bg-blue-500/10 rounded-sm"></div>
+                      <div className="bg-green-500/15 rounded-sm"></div>
+                      <div className="bg-purple-500/10 rounded-sm"></div>
+                      <div className="bg-yellow-500/15 rounded-sm"></div>
+                    </div>
+                    
+                    {/* Timeline markers */}
+                    <div className="absolute inset-0">
+                      {/* Vertical time markers */}
+                      <div className="grid grid-cols-12 h-full">
+                        {[...Array(12)].map((_, i) => (
+                          <div key={i} className="h-full border-l border-white/5"></div>
+                        ))}
+                      </div>
+                      
+                      {/* Current progress indicator */}
+                      <div className="absolute left-[45%] top-0 bottom-0 w-px bg-orange-500/40">
+                        <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-orange-500/80 -translate-x-[2px] sm:-translate-x-[3px] -translate-y-[2px] sm:-translate-y-[3px]"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Timeline labels */}
+                  <div className="flex justify-between mt-0.5 sm:mt-1 text-[6px] sm:text-[8px] text-white/30">
+                    <div>Jan</div>
+                    <div>Fev</div>
+                    <div>Mar</div>
+                    <div>Abr</div>
+                    <div>Mai</div>
+                    <div>Jun</div>
+                    <div>Jul</div>
+                  </div>
+                </div>
+
+                {/* System metrics */}
+                <div className="grid grid-cols-4 gap-1 sm:gap-2">
+                  <div className="metric-card p-1 sm:p-1.5 bg-[#222]/20 rounded-md flex flex-col items-center">
+                    <Globe className="w-2 h-2 sm:w-3 sm:h-3 text-orange-500/60 mb-0.5 sm:mb-1" />
+                    <div className="w-full h-0.5 sm:h-1 bg-orange-500/15 rounded-full mb-0.5 sm:mb-1"></div>
+                    <div className="text-[6px] sm:text-[9px] text-white/30">Projeto</div>
+                  </div>
+                  <div className="metric-card p-1 sm:p-1.5 bg-[#222]/20 rounded-md flex flex-col items-center">
+                    <Settings className="w-2 h-2 sm:w-3 sm:h-3 text-blue-500/60 mb-0.5 sm:mb-1" />
+                    <div className="w-full h-0.5 sm:h-1 bg-blue-500/15 rounded-full mb-0.5 sm:mb-1"></div>
+                    <div className="text-[6px] sm:text-[9px] text-white/30">Materiais</div>
+                  </div>
+                  <div className="metric-card p-1 sm:p-1.5 bg-[#222]/20 rounded-md flex flex-col items-center">
+                    <Code className="w-2 h-2 sm:w-3 sm:h-3 text-green-500/60 mb-0.5 sm:mb-1" />
+                    <div className="w-full h-0.5 sm:h-1 bg-green-500/15 rounded-full mb-0.5 sm:mb-1"></div>
+                    <div className="text-[6px] sm:text-[9px] text-white/30">Financeiro</div>
+                  </div>
+                  <div className="metric-card p-1 sm:p-1.5 bg-[#222]/20 rounded-md flex flex-col items-center">
+                    <Globe className="w-2 h-2 sm:w-3 sm:h-3 text-purple-500/60 mb-0.5 sm:mb-1" />
+                    <div className="w-full h-0.5 sm:h-1 bg-purple-500/15 rounded-full mb-0.5 sm:mb-1"></div>
+                    <div className="text-[6px] sm:text-[9px] text-white/30">Entrega</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Subtle Construction Tools Background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        {/* Construction tools scattered subtly */}
+        <div className="construction-tool-1"></div>
+        <div className="construction-tool-2"></div>
+        <div className="construction-tool-3"></div>
+        <div className="construction-tool-4"></div>
+        <div className="construction-tool-5"></div>
+        <div className="construction-tool-6"></div>
+      </div>
     </section>
   );
 }

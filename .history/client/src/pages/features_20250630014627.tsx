@@ -1,6 +1,18 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { LogoCarousel } from "@/components/ui/logo-carousel";
+import { 
+  ReactIcon, 
+  JavaScriptIcon,
+  TypeScriptIcon, 
+  NodeIcon,
+  ExpressIcon,
+  PythonIcon,
+  PostgreSQLIcon, 
+  MySQLIcon,
+  MongoDBIcon
+} from "@/components/ui/tech-icons";
 import { 
   FolderKanban, 
   Package, 
@@ -203,6 +215,24 @@ const additionalFeatures = [
     title: "Inteligência Artificial",
     description: "Chatbots que atendem clientes, análises automáticas e sugestões inteligentes para seu negócio."
   }
+];
+
+// Tech Stack que realmente usamos - organizadas por categoria
+const techStack = [
+  // Frontend
+  { name: "React", id: 1, img: ReactIcon },
+  { name: "JavaScript", id: 2, img: JavaScriptIcon },
+  { name: "TypeScript", id: 3, img: TypeScriptIcon },
+  
+  // Backend
+  { name: "Node.js", id: 4, img: NodeIcon },
+  { name: "Express", id: 5, img: ExpressIcon },
+  { name: "Python", id: 6, img: PythonIcon },
+  
+  // Bancos de Dados
+  { name: "PostgreSQL", id: 7, img: PostgreSQLIcon },
+  { name: "MySQL", id: 8, img: MySQLIcon },
+  { name: "MongoDB", id: 9, img: MongoDBIcon }
 ];
 
 export default function Features() {
